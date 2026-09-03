@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Taskform from "./Components/Taskform";
 import Tasklist from "./Components/Tasklist";
-import Progresstracker from "./Components/Progresstracker";
+import Progresstracker from "./Components/ProgressTracker";
 
 export default function App() {
   const [tasks, setTasks] = useState([]);

@@ -1,9 +1,20 @@
-import React from 'react'
+import React from "react";
 
-export default function ProgressTracker() {
+export default function ProgressTracker({ tasks }) {
+  const completedTasks = tasks.filter((task) => task.completed).length;
+  const totalTasks = tasks.length;
+  const progress = totalTasks === 0 ? 0 : (completedTasks / totalTasks) * 100;
   return (
-    <div>
-      
+    <div className="progress-tracker">
+      <p>
+        {completedTasks} of {totalTasks} task completed
+      </p>
+      <div className="progress-bar">
+        <div
+          className="progress"
+          style={{ width: `${progress}%` }}
+        ></div>
+      </div>
     </div>
-  )
+  );
 }
