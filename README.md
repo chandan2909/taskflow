@@ -2,6 +2,41 @@
 
 A task management application built with React and Vite.
 
+## Tech Stack
+
+| Category | Technology | Version |
+|----------|------------|---------|
+| Framework | React | ^19.2.8 |
+| Build Tool | Vite | ^8.2.2 |
+| Language | JavaScript (JSX) | -- |
+| Linting | ESLint | ^10.9.0 |
+
+## Project Structure
+
+```
+Taskflow/
+├── index.html              # HTML entry point
+├── package.json            # Dependencies & scripts
+├── vite.config.js          # Vite configuration
+├── eslint.config.js        # ESLint rules
+├── public/                 # Static assets
+│   ├── favicon.svg
+│   └── icons.svg
+├── src/                    # Source code
+│   ├── main.jsx            # React entry point
+│   ├── App.jsx             # Root component
+│   ├── App.css             # Component styles
+│   ├── index.css           # Global styles + theming
+│   └── assets/             # Images & icons
+```
+
+## NPM Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Create production build
+- `npm run lint` - Run ESLint
+- `npm run preview` - Preview production build
+
 ## Core Features
 
 1. **Task Input Form**
@@ -22,3 +57,15 @@ A task management application built with React and Vite.
 5. **Task History**
    - Allow users to view a history of completed tasks.
    - Provide an option to restore or delete tasks from the history, giving users control over their task management.
+
+## Current Status
+
+The project is in **early development stage**. The scaffolding and tooling are fully set up, but the Taskflow features are yet to be built.
+
+### What's Currently Working
+
+- Vite + React development environment with HMR
+- ESLint configured for React hooks and refresh rules
+- Light/dark theme support (via CSS `prefers-color-scheme`)
+- Responsive layout with mobile/desktop support
+- Default Vite starter template (counter demo)
