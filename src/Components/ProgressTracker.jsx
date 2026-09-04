@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function ProgressTracker({ tasks }) {
   const completedTasks = tasks.filter((task) => task.completed).length;
   const totalTasks = tasks.length;
