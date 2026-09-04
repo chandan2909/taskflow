@@ -10,6 +10,8 @@ A task management application built with React and Vite.
 | Build Tool | Vite | ^8.2.2 |
 | Language | JavaScript (JSX) | -- |
 | Linting | ESLint | ^10.9.0 |
+| Date Picker | react-datepicker | ^7.0.0 |
+| Date Utils | date-fns | ^4.1.0 |
 
 ## Project Structure
 
@@ -24,10 +26,15 @@ Taskflow/
 │   └── icons.svg
 ├── src/                    # Source code
 │   ├── main.jsx            # React entry point
-│   ├── App.jsx             # Root component
-│   ├── App.css             # Component styles
-│   ├── index.css           # Global styles + theming
-│   └── assets/             # Images & icons
+│   ├── App.jsx             # Root component (state management)
+│   ├── index.css           # Global styles + CSS variables + theming
+│   ├── assets/             # Images & icons
+│   └── Components/
+│       ├── Taskform.jsx    # Task creation form with validation
+│       ├── TaskList.jsx    # Task display with editing, search, filters
+│       ├── ProgressTracker.jsx  # Completion progress bar
+│       ├── ThemeToggle.jsx      # Dark/light mode toggle
+│       └── Dashboard.jsx        # Analytics dashboard with charts
 ```
 
 ## NPM Scripts
@@ -37,35 +44,47 @@ Taskflow/
 - `npm run lint` - Run ESLint
 - `npm run preview` - Preview production build
 
-## Core Features
+## Features
 
-1. **Task Input Form**
-   - Add tasks with an input field and a submit button.
-   - Ensure the input is validated to prevent empty or duplicate tasks.
+### 1. Task Management
+- Add tasks with text, priority (High/Medium/Low), and category (General/Personal/Work)
+- Inline task editing with Save/Cancel
+- Toggle task completion status
+- Delete individual tasks or clear all
+- Input validation prevents empty tasks
 
-2. **Task List**
-   - Display tasks dynamically, showing task names and their completion status.
-   - Allow users to mark tasks as complete or delete them.
+### 2. Due Dates & Overdue Tracking
+- Optional due date picker on each task
+- Overdue tasks highlighted in red with "Overdue" badge
+- Tasks due today highlighted in amber with "Due today" badge
+- Due date displayed on each task card
 
-3. **Persistent Data**
-   - Use **localStorage** to save tasks so they persist even after refreshing the page.
+### 3. Search, Filter & Sorting
+- Real-time text search across all tasks
+- Filter by status (All/Active/Completed)
+- Filter by priority (All/High/Medium/Low)
+- Filter by category (All/General/Personal/Work)
+- Sort by newest, due date, priority, or alphabetical
 
-4. **Progress Tracker**
-   - Implement a visual progress tracker that shows the percentage of tasks completed.
-   - Update the progress dynamically as tasks are marked as complete or pending.
+### 4. Dark Mode
+- Toggle between light and dark themes
+- Respects system preference on first visit
+- Theme preference persisted in localStorage
+- Smooth CSS transitions between themes
 
-5. **Task History**
-   - Allow users to view a history of completed tasks.
-   - Provide an option to restore or delete tasks from the history, giving users control over their task management.
+### 5. Analytics Dashboard
+- Tab-based navigation (Tasks | Dashboard)
+- Stats cards: Total, Completed, Active, Overdue counts
+- SVG progress ring showing completion percentage
+- Horizontal bar charts for priority and category distribution
 
-## Current Status
+### 6. Data Persistence
+- All tasks saved to localStorage automatically
+- Theme preference saved to localStorage
+- Data persists across page refreshes
 
-The project is in **early development stage**. The scaffolding and tooling are fully set up, but the Taskflow features are yet to be built.
+## Responsive Design
 
-### What's Currently Working
-
-- Vite + React development environment with HMR
-- ESLint configured for React hooks and refresh rules
-- Light/dark theme support (via CSS `prefers-color-scheme`)
-- Responsive layout with mobile/desktop support
-- Default Vite starter template (counter demo)
+- Mobile-first layout with breakpoints at 500px
+- Stacked form inputs and task items on small screens
+- Toolbar and dashboard grid adapt to screen size
